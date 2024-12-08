@@ -1,0 +1,173 @@
+#include<iostream>
+#include<vector>
+
+using namespace std;
+
+class cricket{
+  private:
+  
+  int n,allocate,id,position;
+  
+  string team,element;
+  
+  vector<string> bgt;
+  
+  public:
+  void teamSelection(){
+  
+    bgt.reserve(12);
+  
+    cout<<"choose the Team (India(1) or Austrailia(2)) \n";
+    cin>>team;
+  
+    cout<<"Enter the Players of Team :"<<team<<endl;
+  
+    for(int i=0;i<4;i++){
+  
+        cout<<"Enter the Player Name : ";
+        cin>>element;
+        bgt.push_back(element);
+      
+    }
+  
+    cout<<"Selected Players From Team "<<team<<endl;
+  
+  
+    for(int i=0;i<bgt.size();i++){
+      
+      cout<<i+1<<" "<<bgt.at(i)<<endl;
+    }
+  }
+  
+void RemovePlayerSpecific(){
+  cout<<"Remove the specific Player "<<endl;
+  cin>>id;
+  element=bgt.at(id);
+  bgt.erase(bgt.begin()+id-1);
+    
+    cout<<"Selected Players From Team "<<team<<endl;
+  
+  for(int i=0;i<bgt.size();i++){
+      
+      cout<<i+1<<" "<<bgt.at(i)<<endl;
+  }
+  
+  cout<<"Successfully Removed Player : "<<element<<endl;
+}
+  
+void RemovePlayers(){  
+  
+  cout<<"Remove underperforming Player \n";
+  
+  cout<<"Enter the  No of the player to be removed \n";
+  cin>>id;
+  
+  bgt.pop_back();
+   
+  cout<<"Revised Selected Players From Team "<<team<<endl;
+  
+  for(int i=0;i<bgt.size();i++){
+      cout<<i+1<<" "<<bgt.at(i)<<endl;
+  }
+}
+
+void AddPlayerSpecific(){
+  cout<<"Enter the New PLayers and At specific Order \n";
+  
+  cout<<"Enter the  No of the player to be removed \n";
+  
+  cin>>id;
+  
+  for(int i=0;i<id;i++){
+    cout<<"Enter the order \n";
+    cin>>position;
+    cout<<"Enter the Player Name";
+    cin>>element;
+    bgt.insert(bgt.begin()+position-1,element);
+  }  
+  
+  cout<<"Revised Selected Players From Team "<<team<<endl;
+  
+  for(int i=id;i>0;i++){
+      cout<<i+1<<" "<<bgt.at(i)<<endl;
+  }
+}
+
+
+void ClearTeam(){
+    cout<<"You have Choosed to clear the Team \n";
+    
+    bgt.clear();
+    
+    cout<<"CLeared the Team !!!\n";
+}
+
+void SizeUpdate(){
+    
+    cout<<"Resize the Team (change the size of the team)"<<endl;
+    
+    cout<<"Existing Size of Team "<<bgt.capacity()<<"\n"<<"Enter The new Size"<<endl;
+    cin>>allocate;
+    
+    bgt.resize(allocate);
+    cout<<"updated size"<<bgt.size();
+}
+  
+  
+    
+};
+
+int main(){
+    
+    cout<<"======================================================= \n";
+    cout<<"Welcome to Vector Based Cricket selection simulator in C ++ \n";
+    int option;
+    cricket c;
+    do{
+        cout<<"1.Select Team and Players \n";
+        
+        cout<<"2.Remove Players \n";
+        
+        cout<<"3.Remove Specific Player \n";
+        
+        cout<<"4.Add Specific Player\n";
+        
+        cout<<"5.Clear the Team \n";
+        
+        cout<<"6.Update the Size of Team\n";
+        
+        cout<<"Please the Options From Above :\n";
+        cin>>option;
+        
+    switch(option){
+        case 1:
+        c.teamSelection();
+        break;
+        
+        case 2:
+       c.RemovePlayers();
+        break;
+        
+        case 3:
+         c.RemovePlayerSpecific();
+        break;
+        
+        case 4:
+        c.AddPlayerSpecific();
+        break;
+        
+        case 5:
+        c.ClearTeam();
+        break;
+        
+        case 6:
+        c.SizeUpdate();
+        break;
+        
+        default :
+        cout<<"Wrong Input Entered !!";}
+    }while(option<7);
+    
+    return 0;
+    
+}
