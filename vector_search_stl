@@ -1,0 +1,44 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+class Search{
+    private:
+
+    public:
+    
+    void normal(vector<int> &a,int key){
+        auto output=find(a.begin(),a.end(),key);
+        if(output!=a.end()){
+            
+            cout<<"The Element found index "<<distance(a.begin(),output)<<endl;
+    
+            
+        }
+        else{
+            cout<<"element not found"<<endl;
+        }
+    }
+    
+    void binSearch(vector<int> &a,int key){
+        cout<<"sorting the elements"<<endl;
+        sort(a.begin(),a.end());
+        int out=binary_search(a.begin(),a.end(),key);
+        if(out){
+            
+        cout<<"The  Element "<<a.at(out)<<" found at :"<<out<<endl;
+        
+    }
+    else{
+        cout<<"The Element is not found \n";
+    }}
+    
+};
+
+int main(){
+    vector<int> list={23,34,67};
+    Search s;
+    //s.normal(list,34);
+    s.binSearch(list,34);
+    return 0;
+}
