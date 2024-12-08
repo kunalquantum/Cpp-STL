@@ -1,0 +1,204 @@
+#include<iostream>
+#include<algorithm>
+#include<deque>
+using namespace std;
+class Deque{
+    private:
+    deque<int> dq;
+    
+    public:
+    void PushFront(int a){
+        cout<<"You have selected the push front \n";
+        dq.push_front(a);
+        
+        cout<<"The Elements After Successful application of push front\n";
+        for(int i:dq){cout<<i<<"->";}
+    }
+    void PushBack(int a){
+          cout<<"You have selected the push back \n";
+        dq.push_back(a);
+        cout<<"The Elements After Successful application of push back\n";
+        for(int i:dq){cout<<i<<"->";}
+    }
+    
+    void AccessFront(){
+        cout<<"You have selected the front access \n";
+        cout<<"Front Element :"<<dq.front()<<endl;
+    }
+    
+    void Accessback(){
+        cout<<"You have selected the back access \n";
+        cout<<"Back Element :"<<dq.back()<<endl;
+    }
+    void AccessAt(int a){
+        cout<<"You have selected the .at() access Method\n";
+        cout<<" Element : "<<" at "<<a<<" is "<<dq.at(a)<<endl;
+    }
+    
+    void Accessbrackets(int a){
+        cout<<"You have selected the [] access Method\n";
+        cout<<" Element : "<<" at "<<a<<" is "<<dq[a]<<endl;
+    }
+    
+    void PopFront(){
+         cout<<"You have selected the pop front Removing method\n";
+         cout<<"successfully removed "<<dq.front()<<endl;
+         dq.pop_front();
+         cout<<"The Elements After Successful application of pop front\n";
+         for(int i:dq){cout<<i<<"->";}
+         
+        
+    }
+    void PopBack(){
+        cout<<"You have selected the pop Back Removing method\n";
+         cout<<"successfully removed "<<dq.back()<<endl;
+         dq.pop_back();
+         cout<<"The Elements After Successful application of pop back\n";
+         for(int i:dq){cout<<i<<"->";}
+    }
+    
+    void Insert(int a,int b){
+         cout<<"You have selected the insert  method\n";
+         cout<<" Successfully inserted "<<b<<" At Position "<<endl;
+         
+         dq.insert(dq.begin()+a-1,b);
+         cout<<"The Elements After Successful application of insert\n";
+         for(int i:dq){cout<<i<<"->";}
+        
+    }
+    
+   void Erase(int ele){
+         cout<<"You have selected the erase method\n";
+         cout<<" Successfully erased :"<<dq[ele]<<endl;
+         
+         dq.erase(dq.begin()+ele-1);
+         cout<<"The Elements After Successful application of erase\n";
+         for(int i:dq){cout<<i<<"->";}
+    }
+    void Resize(int n,int ele){
+        cout<<"You have selected the Resize method\n";
+     
+        dq.resize(n,ele);
+         
+         cout<<"The Elements After Successful application of Resize\n";
+         for(int i:dq){cout<<i<<"->";}
+        
+    }
+    
+    void clear(){
+        cout<<"You have selected the Clear method\n";
+     
+        dq.clear();
+         
+         cout<<"The Elements After Successful application of clear\n";
+         for(int i:dq){cout<<i<<"->";}
+    }
+        
+};
+
+
+
+
+
+int main()
+{
+    cout<<"This is the comprehensive overview program for making hand dirty with the STL of c++ \n";
+    
+    int option,ele,n;
+    Deque d;
+    
+    do{
+        cout<<"1. Push Front \n";
+        cout<<"2. Push back \n";
+        cout<<"3. access Front \n";
+        cout<<"4. access back \n";
+        cout<<"5. access using .at()t \n";
+        cout<<"6. access using [] \n";
+        cout<<"7. pop front \n";
+        cout<<"8. pop back \n";
+        cout<<"9. insert specific \n";
+        cout<<"10. erase specific \n";
+        cout<<"11. Resize the deque \n";
+        cout<<"12. clear the deque \n";
+        cout<<"Enter the option :\n";
+        cin>>option;
+        
+        switch(option){
+            case 1:
+            cout<<"enter the element :\n";
+            cin>>ele;
+            d.PushFront(ele);
+            break;
+            
+             case 2:
+              cout<<"enter the element :\n";
+            cin>>ele;
+            d.PushBack(ele);
+            break;
+            
+             case 3:
+            d.AccessFront();
+            break;
+            
+             case 4:
+             d.Accessback();
+            break;
+            
+             case 5:
+             cout<<"enter the position :\n";
+             cin>>ele;
+             d.AccessAt(ele);
+            break;
+            
+             case 6:
+             cout<<"enter the position :\n";
+             cin>>ele;
+             d.Accessbrackets(ele);
+             
+            break;
+            
+             case 7:
+             d.PopFront();
+             break;
+            
+             case 8:
+             d.PopBack();
+            break;
+            
+            case 9:
+            cout<<"enter the value :\n";
+            cin>>ele;
+            cout<<"enter the position :\n";
+            cin>>n;
+            d.Insert(n,ele);
+            break;
+            
+            case 10:
+            cout<<"enter the position :\n";
+            cin>>n;
+            
+            d.Erase(n);
+            
+            break;
+            
+            case 11:
+            cout<<"enter the updated size  :\n";
+            cin>>ele;
+            cout<<"enter the values to fill in update :\n";
+            cin>>n;
+            d.Resize(n,ele);
+            
+            break; 
+            
+            case 12:
+            d.clear();
+            break;
+            
+            default:
+            cout<<"The Input is incorrect \n";
+        }
+    }while(option<13);
+    
+    
+    
+}
