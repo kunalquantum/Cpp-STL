@@ -1,0 +1,29 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+int main(){
+    int n,element,allocate;
+    cout<<"Using Reserved keyword for pre-allocation of the memory \n";
+    
+    cout<<"Enter the memory to be allocated or reserved \n";
+    cin>>allocate;
+    
+    cout<<"Enter the no of elements to be stored \n";
+    cin>>n;
+    
+    vector<int> stream;
+    stream.reserve(allocate);
+    for(int i=0;i<n;i++){
+    
+    cout<<"Enter :\n";
+    cin>>element;
+    
+    stream.push_back(element);
+    
+    }
+    
+    cout<<"The Total Memory reserved is "<<stream.capacity()<<endl;
+    cout<<"The Overall Memory used is "<<stream.size();
+    
+    return 0;
+}
