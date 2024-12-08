@@ -1,0 +1,52 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+class searching{
+    private:
+    int mid,left,right;
+   
+    
+    public:
+    int linearImp(const vector<int> &a,int key){
+        cout<<"Manual Linaear Search \n";
+        for(int i=0;i<a.size();i++){
+            if(a.at(i)==key){
+         
+                return i;
+            }
+          
+        }
+          return -1;
+    }
+    
+    int binaryImp(const vector<int> &a,int key){
+        cout<<"Manual Binary Search \n";
+        left=0,right=a.size()-1;
+       
+        while(left<=right){
+            mid=left+(right-left)/2;
+            cout<<"current mid : \n"<<mid<<endl;
+            if(a[mid]==key)
+            return mid;
+            else if(a[mid]<key){
+            left=mid+1;
+                cout<<"updated mid :\n"<<mid<<endl;
+            }
+            else {
+            right=mid-1;
+                cout<<"updated mid : \n"<<mid<<endl;
+            }
+    }
+    return -1;
+    
+    }
+};
+
+int main(){
+    vector<int> list={10, 20, 30, 40, 50};
+    searching s;
+
+    cout<<"The position of target element is "<<s.binaryImp(list,45);
+}
+
