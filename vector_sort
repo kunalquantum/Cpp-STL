@@ -1,0 +1,94 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+class sorting{
+public :
+void descending(vector <int> &a){
+    cout<<"Descending Sort \n";
+    cout<<"before sorting";
+    for(int x:a){cout<<x<<" "<<endl;}
+    sort(a.begin(),a.end(),[](int a, int b){return a>b;});
+    cout<<"after sorting descending.......";
+    for(int  x:a){cout<<x<<" "<<endl;}
+
+}
+
+void ascending(vector<int> &a){
+    cout<<"Ascending Sort \n";
+    cout<<"before sorting \n";
+    for(int x:a){cout<<x<<endl;}
+    sort(a.begin(),a.end());
+    cout<<"after sorting \n";
+    for(int x:a){cout<<x<<endl;}
+    
+}
+
+void absolute(vector<int> &a){
+    cout<<"Absolute Ascending Sort \n";
+    cout<<"before sorting \n";
+    for(int x:a){cout<<x<<endl;}
+    sort(a.begin(),a.end(),[](int a,int b){return abs(a)<abs(b);});
+    cout<<"after sorting \n";
+    for(int x:a){cout<<x<<endl;}
+}
+
+void partialsort(vector<int> &a,int n){
+    cout<<"Partial Sort \n";
+    cout<<"before sorting \n";
+    for(int x:a){cout<<x<<endl;}
+    partial_sort(a.begin(),a.begin()+n,a.end());
+    cout<<"after sorting \n";
+    for(int x:a){cout<<x<<endl;}
+
+    
+}
+
+void ReverseSorted(vector<int> &a){
+    cout<<"Reverse Sorted vector\n";
+    cout<<"before sorting \n";
+    for(int x:a){cout<<x<<endl;}
+    reverse(a.begin(),a.end());
+    cout<<"after sorting \n";
+    for(int x:a){cout<<x<<endl;}   
+}
+
+
+void k_th_smallest(vector<int> &a,int k)
+    {
+cout<<"K smallest element \n";
+  
+    cout<<"before sorting \n";
+    for(int x:a){cout<<x<<endl;}
+    nth_element(a.begin(),a.begin()+k-1,a.end());
+    cout<<"The "<<k<<"th"<<"element is "<<a[k-1]<<endl;
+
+    }
+void sortEmployees(vector<pair<int, string>>& a) {  
+    // Sort the vector in descending order based on the first element of the pair (efficiency)  
+    sort(a.begin(), a.end(), [](const pair<int, string>& a, const pair<int, string>& b) {  
+        return a.first > b.first; // Sort by efficiency in descending order  
+    });  
+    
+    cout << "Employees sorted from high to low efficiency: \n";  
+    for (const auto& x : a) {  
+        cout << x << endl; // Now you can output pairs directly  
+    }  
+}
+};
+int main(){
+    vector <int> list={1,5,67,-345,67,45,678,-45,33};
+    vector<pair<int,string>> students={{1,"Kunal"},{2,"siddhi"},{3,"vansh"},{3,"yukti"} }
+    sorting s;
+  //  s.descending(list);
+    //s.ascending(list);
+    //s.absolute(list);
+    //s.partialsort(list,3);
+    //s.ReverseSorted(list);
+   // s.k_th_smallest(list,3);'
+   s.sortEmployees(students)
+    
+    
+    return 0;
+}
