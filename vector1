@@ -1,0 +1,27 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+int main()
+{
+    int n,element;
+    cout<<"Vectors in C++\n";
+    
+    cout<<"Declaration of the vector\n";
+    
+    vector<int> gifts;
+
+    cout<<"Enter the size of the vector \n";
+    cin>>n;
+    
+    for(int i=0;i<n;i++){
+        cout<<"Enter :";
+        cin>>element;
+        gifts.push_back(element);
+        cout<<"successfully inserted element in the vector\n";
+    }
+    
+    cout<<"The elements in the Gifts \n";
+    for(int x:gifts) cout<<x<<" ";
+    
+    return 0;
+}
