@@ -1,0 +1,39 @@
+#include<iostream>
+#include<algorithm>
+#include<map>
+using namespace std;
+class Map{
+    private:
+    map<int,string> employee;
+    public:
+    
+    void Insert(int Index,string val){
+        cout<<"The Key :"<<Index<<"The value :"<<val<<endl;
+        employee[Index]=val;
+        
+        for(auto &mp:employee){
+            cout<<"Key :"<<mp.first<<" value :"<<mp.second<<endl;
+        }
+    }
+    
+
+        
+};
+
+int main(){
+    Map m;
+    int n,key;
+    string value;
+    cout<<"Enter the no of elements to be entered \n";
+    cin>>n;
+    while(n>0){
+        
+        cout<<"Enter the Key :\n";
+        cin>>key;
+        cout<<"Enter the value :\n";
+        cin>>value;
+        
+    m.Insert(key,value);
+        n--;
+    }
+}
