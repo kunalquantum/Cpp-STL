@@ -1,0 +1,66 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+class session1{
+    private:
+    bool status;
+    int largest,secondLargest;
+    public:
+    void Reverse(vector<int> &a){
+        cout<<"Before reversing \n";
+        for(int x:a){cout<<x<<" ";}
+        cout<<endl;
+        cout<<"The Reversed array is :\n";
+        for(int i=a.size()-1;i>=0;i--){cout<<a[i]<<" ";}
+    }
+    
+    void palindrome(string str){
+        status=true;
+        int j=str.size()-1;
+        if(str.size()==0)
+        cout<<"the string is null";
+        else{
+            for(int i=0;i<str.size();i++){
+                if(str[i]!=str[j])
+                status=false;
+                break;
+            }
+            j--;
+        }
+        
+        if(status==true){
+            cout<<"the string is Palindrome \n";
+        }
+        else{
+            cout<<"the string is not the palindrom \n";
+        }
+        
+        
+    }
+    
+    void SecondLargest(vector<int> &a){
+        for(int x:a){
+            secondLargest=largest;
+            largest=largest<x?x:largest;
+            
+            if((x<largest)&&(x>secondLargest)){
+                secondLargest=x;
+            }
+            
+        }
+        
+        cout<<"Second Largest :"<<secondLargest<<endl;
+        
+     
+        
+    }
+};
+int main() {
+    vector<int> list={23,34,45,56,67,78};
+    session1 s;
+    s.Reverse(list);
+    s.palindrome("kuk");
+    s.SecondLargest(list);
+}
