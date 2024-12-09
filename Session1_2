@@ -1,0 +1,99 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <utility>
+using namespace std;
+
+class session1_2{
+    private:
+    int mid,left,right,n,temp,i,j;
+    bool swapped;
+    public:
+    
+        void BinarySearch(vector<int> &a,int key){
+            sort(a.begin(),a.end());
+            left=0,right=a.size();
+            while(left <= right){
+                mid= left + (right-left)/2;
+                if(a[mid]==key){
+                 cout<<"The Element found at "<<mid<<endl;
+                   return;
+                } 
+                 
+                else if(a[mid]<key)
+                  left=mid+1;
+                else 
+                  right=mid-1; 
+    
+            }
+            cout<<"The key not found \n";
+    
+        }
+      
+        void bubbleSort(vector<int> &a){
+        cout<<"sorted Array before sort :\n";
+        for(int x:a){cout<<x<<endl;}
+           n=a.size();
+           for(int i=0;i<n-1;i++){
+               swapped=false;
+               
+               for(int j=0;j<n-i-1;j++){
+                   if(a[j]>a[j+1]){
+                       swapped=true;
+                       swap(a[j],a[j+1]);
+               }
+               
+           }
+           
+           if(!swapped)
+           break;
+        }
+            
+            cout<<"sorted Array after the bubble sort :";
+            for(int x:a){cout<<x<<endl;}
+        }
+        
+        void ArrayIntersection(vector<int> &a,vector<int> &b){
+            
+            sort(a.begin(),a.end());
+            sort(b.begin(),b.end());
+            cout<<"The arrays after sorting :"<<endl;
+            for(int x:a){cout<<x<<" ";}
+             cout<<"The arrays after sorting :"<<endl;
+            for(int x:b){cout<<x<<" ";}
+            
+            vector<int> result;
+            i=0,j=0;
+            
+            while((i < a.size() ) && (j < b.size())){
+                if(a.at(i)==b.at(j))
+                {
+                  result.push_back(a.at(i));
+                  i++;
+                  j++;
+                }
+                else if(a.at(i)>b.at(j)){
+                    j++;
+                }
+                else{
+                    i++;
+                }
+            }
+            
+           cout<<"The Intersection Elements are : "<<endl;
+           for(int x:result){cout<<x<<" ";}
+        }
+};
+
+int main() {
+    vector<int> list={12,34,56,67,77,67,56,45};
+    vector<int> list1={1,2,2,3};
+    vector<int> list2={1,5,7,4,3};
+    session1_2 s;
+    //s.BinarySearch(list,45);
+    //s.bubbleSort(list);
+    s.ArrayIntersection(list1,list2);
+
+    return 0;
+}
