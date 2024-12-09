@@ -1,0 +1,68 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+using namespace std;
+class session1_3{
+    private:
+    int a,b,c,temp;
+    bool status;
+    vector<int> series;
+    public:
+    void prime(int n){
+        status=true;
+        if(n<=1) cout<<"not prime number\n";
+        
+        for(int i=2;i<sqrt(n);i++){
+            if(n%i==0){
+            cout<<"Not a prime Number:\n";
+            status=false;
+                break;
+            }
+            
+        }
+        if(status==true)
+        {
+            cout<<"prime \n";
+        }
+        
+    }
+    
+    void fibo(int n){
+        if(n<=1) cout<<"no Fibo possible\n";
+        a=0;
+        b=1;
+        
+        for(int i=2;i<=n;++i){
+            c=a+b;
+            a=b;
+            b=c;
+        
+            series.push_back(b);
+        }
+        cout<<"Fibonacci Series "<<n<<"Is as follows ";
+        for(int x:series){cout<<x<<"->";}
+    }
+    
+    void gcd(int a,int b){
+        int i=0;
+        while(b!=0){
+            
+            temp=b;
+            b=a%b;
+            a=temp;
+            cout<<"a->"<<a<<"  b->"<<b<<endl;
+            i++;
+        }
+        cout<<"Greatest Common Divisor :"<<a<<endl;
+        }
+};
+
+
+int main() {
+    session1_3 s;
+    s.fibo(10);
+    s.gcd(48,98);
+    s.prime(7);
+}
