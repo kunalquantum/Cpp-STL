@@ -1,0 +1,47 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <cmath>
+using namespace std;
+class session1_4{
+  private:
+  int copy,count,digit,sum;
+  
+  public:
+  void armstrong(int n){
+      sum=0;
+      copy=n;
+      string str=to_string(n);
+      int len=str.size();
+    while(n>0){
+      
+        digit=n % 10;
+        cout<<digit<<endl;
+        sum+=pow(digit,len);
+        cout<<"sum :"<<sum<<endl;
+        n=n/10;
+        cout<<"updated n : "<<n<<endl;
+    }
+    cout<<"Calculated :"<<sum<<endl;
+    cout<<"Original Number :"<<copy<<endl;
+    if(sum==copy)
+    cout<<"The Number is Armstrong \n";
+    else
+    cout<<"The Number is Not Armstrong \n";
+    
+      
+  } 
+  
+  void countSetBit(int num){
+      int count;
+      while(num){
+      count+= num & 1;
+      num>>=1;
+      }
+      cout<<"The number of set bits are :"<<count<<endl;
+  }
+};
+int main() {
+    session1_4 s;
+    s.armstrong(1534);
+    s.countSetBit(5);
+}
